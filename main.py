@@ -7,6 +7,8 @@ screen_width = 800
 screen_height = 800
 screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("CHESS")
+icon = pygame.image.load('chess1.png')
+pygame.display.set_icon(icon)
 bg_color = (0, 0, 0)
 white = (255, 255, 255)
 #standard game loop

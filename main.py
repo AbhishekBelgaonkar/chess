@@ -1,5 +1,5 @@
 import pygame
-from chesss import GEngine
+import GEngine
 width = 400
 height = 400
 dimension = 8 #no of sqarues in a row or column

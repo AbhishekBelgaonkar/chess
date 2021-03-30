@@ -29,21 +29,22 @@ def main():
                 sys.exit()
         clock.tick(30)
         pygame.display.flip()
-        drawBoard(screen)
+        DrawGameState(screen, gs)
 def DrawGameState(screen, gs):
     drawBoard(screen) # draws squares
     drawPieces(screen, gs.board) # draws pieces on squares
-
 def drawBoard(screen):
     colours = [pygame.Color("white"), pygame.Color("grey")]
     for r in range(dimension):
         for c in range(dimension):
             colour = colours[((r+c)%2)] # if row and column sum is odd the dark sqaure and if even the grey square
             pygame.draw.rect(screen, colour, pygame.Rect(c*square, r*square, square, square))
-        
-
 def drawPieces(screen, board):
-    pass
+    for r in range(dimension):
+        for c in range(dimension):
+            pieces = board[r][c]
+            if pieces != "--":#not empty square
+                screen.blit(images[pieces], pygame.Rect(c*square, r*square, square, square))
 # makes sure that program only runs if this file is run
 if __name__ == "__main__":
     main()

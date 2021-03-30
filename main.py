@@ -43,7 +43,11 @@ def drawBoard(screen):
         
 
 def drawPieces(screen, board):
-    pass
+    for r in range(dimension):
+        for c in range(dimension):
+            pieces = board[r][c]
+            if pieces != "--":#not empty square
+                screen.blit(images[pieces], pygame.Rect(c*square, r*square, square, square))
 # makes sure that program only runs if this file is run
 if __name__ == "__main__":
     main()

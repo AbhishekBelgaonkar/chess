@@ -6,7 +6,7 @@ dimension = 8 #no of sqarues in a row or column
 square = height//dimension
 images = {}
 pygame.display.set_caption("Chess")
-icon = pygame.image.load("images/bP.png")
+icon = pygame.image.load("images/bp.png")
 pygame.display.set_icon(icon)
 # call images only once dont load them every frame
 def LoadImages():

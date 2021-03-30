@@ -1,6 +1,5 @@
 import pygame
 import GEngine
-import sys
 width = 400
 height = width
 dimension = 8 #no of sqarues in a row or column
@@ -11,7 +10,7 @@ icon = pygame.image.load("images/bP.png")
 pygame.display.set_icon(icon)
 # call images only once dont load them every frame
 def LoadImages():
-    pieces = ['wP', 'wR', 'wQ','wK','wN','wB','bP', 'bR', 'bQ','bK','bN','bB']
+    pieces = ['wp', 'wR', 'wQ','wK','wN','wB','bp', 'bR', 'bQ','bK','bN','bB']
     for piece in pieces:
         images[piece] = pygame.transform.scale(pygame.image.load("images/" + piece + ".png"), (square, square))
 #input
@@ -22,11 +21,11 @@ def main():
     clock = pygame.time.Clock()
     gs = GEngine.game()
     LoadImages()
-    while True:
+    running = True
+    while (running):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
+                running = False
         clock.tick(30)
         pygame.display.flip()
         DrawGameState(screen, gs)
@@ -42,9 +41,9 @@ def drawBoard(screen):
 def drawPieces(screen, board):
     for r in range(dimension):
         for c in range(dimension):
-            pieces = board[r][c]
-            if pieces != "--":#not empty square
-                screen.blit(images[pieces], pygame.Rect(c*square, r*square, square, square))
+            piece = board[r][c]
+            if piece != "--":#not empty square
+                screen.blit(images[piece], pygame.Rect(c*square, r*square, square, square))
 # makes sure that program only runs if this file is run
 if __name__ == "__main__":
     main()

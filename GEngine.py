@@ -1,7 +1,7 @@
 # determines the valid moves
 class game():
 	def __init__(self): #constructor
-		self.board = [ #first char of eleent represents color "--" is empty space
+		self.board = [ #first char of element represents color "--" is empty space
 			["bR", "bN", "bB", "bQ", "bK", "bB", "bN", "bR"],
 			["bp", "bp", "bp", "bp", "bp", "bp", "bp", "bp"],
 			["--", "--", "--", "--", "--", "--", "--", "--"],

@@ -31,8 +31,8 @@ class move():
 	colstofiles = {v :k for k, v in filestocols.items()}
 	def __init__(self, startsq, endsq, board):
 		self.startrow = startsq[0]
-		self.endrow = startsq[1]
-		self.startcol = endsq[0]
+		self.startcol = startsq[1]
+		self.endrow = endsq[0]
 		self.endcol = endsq[1]
 		self.piecemoved = board[self.startrow][self.startcol]
 		self.captured = board[self.endrow][self.endcol]

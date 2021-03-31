@@ -30,8 +30,8 @@ def main():
                 running = False
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 location = pygame.mouse.get_pos() # x,y location for the mouse
-                row = location[0]//sqaure
-                col = location[1]//sqaure
+                row = location[0]//square
+                col = location[1]//square
                 if sqaureselected == (row, col): # checks if same square is selected twice
                     sqaureselected = () # deselects the sqaure
                     playerclicks = [] # resets player clicks
@@ -39,8 +39,11 @@ def main():
                     sqaureselected = (row,col)
                     playerclicks.append(sqaureselected) # adds 1st and 2nd clicks to the list
                 if len(playerclicks) == 2:
-                    
-
+                    move = GEngine.move(playerclicks[0], playerclicks[1], gs.board)
+                    print(move.getchessnotation())
+                    gs.makemove(move)
+                    sqaureselected = ()
+                    playerclicks = []
         DrawGameState(screen, gs) # function call for the gamestate, which includes all the chess pieces
         clock.tick(30)
         pygame.display.flip() # updates the game display

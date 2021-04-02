@@ -20,7 +20,7 @@ class game():
 		self.whitetomove = not self.whitetomove # witch players
 	def undomove(self):
 		if len(self.movelog) != 0:
-			move = self.movelog.pop()
+			move = self.movelog.pop() # removes latest entry from movelog
 			self.board[move.startrow][move.startcol] = move.piecemoved
 			self.board[move.endrow][move.endcol] = move.captured
 			self.whitetomove = not self.whitetomove # switch turns

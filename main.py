@@ -44,6 +44,9 @@ def main():
                     gs.makemove(move)
                     sqaureselected = ()
                     playerclicks = []
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_z: # undo when z is pressed
+                    gs.undomove()
         DrawGameState(screen, gs) # function call for the gamestate, which includes all the chess pieces
         clock.tick(15)
         pygame.display.flip() # updates the game display

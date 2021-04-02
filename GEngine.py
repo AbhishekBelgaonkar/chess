@@ -18,6 +18,13 @@ class game():
 		self.board[move.endrow][move.endcol] = move.piecemoved
 		self.movelog.append(move) # logs the moves made
 		self.whitetomove = not self.whitetomove # witch players
+	def undomove(self):
+		if len(self.movelog) != 0:
+			move = self.movelog.pop()
+			self.board[move.startrow][move.startcol] = move.piecemoved
+			self.board[move.endrow][move.endcol] = move.captured
+			self.whitetomove = not self.whitetomove # switch turns
+
 class move():
 	# maps keys to values
 	# key : value
